@@ -27,7 +27,7 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 // Admin Auth Routes
-Route::get('admin/home', [AdminController::class, 'index'])->name('admi.home');
+Route::get('admin/home', [AdminController::class, 'index'])->name('admin.home');
 Route::get('admin', [LoginController::class, 'showLoginForm'])->name('admin.login');
 Route::post('admin', [LoginController::class, 'login']);
 Route::get('admin/password/confirm', [ConfirmPasswordController::class, 'showConfirmForm'])->name('admin.password.confirm');
