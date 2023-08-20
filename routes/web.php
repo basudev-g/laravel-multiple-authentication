@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\Auth\ConfirmPasswordController;
 use App\Http\Controllers\Admin\Auth\ForgotPasswordController;
 use App\Http\Controllers\Admin\Auth\LoginController;
 use App\Http\Controllers\Admin\Auth\ResetPasswordController;
+use App\Http\Controllers\Admin\EditorController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,6 +29,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 // Admin Auth Routes
 Route::get('admin/home', [AdminController::class, 'index'])->name('admin.home');
+Route::get('admin/editor', [EditorController::class, 'index'])->name('admin.editor');
 Route::get('admin', [LoginController::class, 'showLoginForm'])->name('admin.login');
 Route::post('admin', [LoginController::class, 'login']);
 Route::get('admin/password/confirm', [ConfirmPasswordController::class, 'showConfirmForm'])->name('admin.password.confirm');

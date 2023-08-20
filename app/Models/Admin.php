@@ -55,4 +55,8 @@ class Admin extends Authenticatable
     {
         $this->notify(new AdminPasswordResetNotification($token));
     }
+
+    public function roles() {
+        return $this->belongsToMany(Role::class, 'admin_roles');
+    }
 }

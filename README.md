@@ -1,9 +1,11 @@
 # Laravel Multiple Authentication System
+Development Stack: Laravel, MySQL, Bootstrap, jQuery.
+Users: Admin and User
+Guard Login System
 ## Files for admin email sending:
-[illuminate\auth\passwords\CanResetPassword.php]
-[illuminate\auth\notifications\ResetPassword.php]
-[app\models\Admin.php]
-
+1. `illuminate\auth\passwords\CanResetPassword.php`
+2. `illuminate\auth\notifications\ResetPassword.php`
+3. `app\models\Admin.php`
 
 
 ## Admin auth routes:
