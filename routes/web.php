@@ -6,6 +6,8 @@ use App\Http\Controllers\Admin\Auth\ForgotPasswordController;
 use App\Http\Controllers\Admin\Auth\LoginController;
 use App\Http\Controllers\Admin\Auth\ResetPasswordController;
 use App\Http\Controllers\Admin\EditorController;
+use App\Http\Controllers\Auth\VerificationController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,8 +25,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// User Auth Routes
 Auth::routes();
 
+// User home route
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 // Admin Auth Routes
@@ -38,4 +42,11 @@ Route::post('admin/password/email', [ForgotPasswordController::class, 'sendReset
 Route::get('admin/password/reset', [ForgotPasswordController::class, 'showLinkRequestForm'])->name('admin.password.request');
 Route::post('admin/password/reset', [ResetPasswordController::class, 'reset'])->name('admin.password.update');
 Route::get('admin/password/reset/{token}', [ResetPasswordController::class, 'showResetForm'])->name('admin.password.reset');
+
+// Email Verification Routes
+Route::get('/email/verify', [VerificationController::class, 'show'])->name('verification.notice');
+ 
+Route::get('/email/verify/{id}/{hash}', [VerificationController::class, 'verify'])->name('verification.verify');
+
+Route::post('/email/verification-notification', [VerificationController::class, 'resend'])->name('verification.resend');
 
